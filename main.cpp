@@ -132,7 +132,7 @@ int main(int argc, char** argv)
 					else if(sv[i][j] >= length)
 					{
 						sv[i][j] = 0;
-						wprintw(game_arena, "ZZ");
+						wprintw(game_arena, "[]");
 					}
 					else if(sv[i][j] == -1)
 					{
@@ -143,11 +143,11 @@ int main(int argc, char** argv)
 					{
 						sv[i][j]++;
 						//wprintw(game_arena, "\u53e3");
-						wprintw(game_arena, "SS");
+						wprintw(game_arena, "[]");
 					}
 				}
 			}
-			while(genfood == 1)
+			if(genfood == 1)
 			{
 				srand(time(0));
 				int a, b;
