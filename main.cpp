@@ -51,6 +51,7 @@ int main(int argc, char** argv)
 		char direction = 'u';
 		int length = 4; //initial lenght of centipede
 		int genfood = 1; //generate food
+		string score;
 
 	//------------ create 2D vector and generate objects from tile class
 		vector<vector <int> > sv
@@ -111,9 +112,14 @@ int main(int argc, char** argv)
 			switch(sv[y][x])
 			{
 				case 0: sv[y][x] = 1; break; //nothing got eaten/coast is clear
-				case -1: sv[y][x] = 1; length++; genfood = 1; break; //you ate food and became longer
+				case -1: sv[y][x] = 1; length++; genfood = 1; break;
 				default: GameState = 0; //you ate urself lol
 			}
+			score.assign("Score: ");
+			score.append(to_string(length - 4));
+			score.append("   ");
+			move(ypos-1,xpos);
+			printw(score.c_str());
 			for( int i = 0; i < sv.size(); i++ )
 			{
 				for( int j = 0; j < sv.size(); j++ )
@@ -126,7 +132,7 @@ int main(int argc, char** argv)
 					else if(sv[i][j] >= length)
 					{
 						sv[i][j] = 0;
-						wprintw(game_arena, "  ");
+						wprintw(game_arena, "ZZ");
 					}
 					else if(sv[i][j] == -1)
 					{
