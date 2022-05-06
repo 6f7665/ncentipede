@@ -20,7 +20,8 @@ int main(int argc, char** argv)
 	scrollok(stdscr, TRUE);
 	nodelay(stdscr, TRUE);
 
-	printw("\n\tCaterpillar\n\t\tken kanekis favourite...");
+	printw("\n\tCentipede\n\tken kanekis favourite...");
+
 	refresh();
 
 	ysize = 17;
@@ -92,7 +93,6 @@ int main(int argc, char** argv)
 				case 'a': direction = 'l'; break;
 				case 'd': direction = 'r'; break;
 			}
-			napms(200);
 
 			switch(direction)
 			{
@@ -155,11 +155,12 @@ int main(int argc, char** argv)
 			}
 
 			wrefresh(game_arena);
-			napms(200);
+			napms(400-length);
 		}
 	//-------------	Remove window for game and open dialoge
 		delwin(game_arena);
-		printw("\n New Game?[y/n]\n");
+		move(2,3);
+		printw("New Game?[y/n]                 ");
 		NewGame = 2; //unset
 		refresh();
 		nodelay(stdscr, FALSE);
@@ -168,7 +169,7 @@ int main(int argc, char** argv)
 			ch = getch();
 			switch(ch)
 			{
-				case 'y': NewGame = 1; nodelay(stdscr, TRUE); break;
+				case 'y': NewGame = 1; nodelay(stdscr, TRUE); move(2,3); printw("You sure like centipedes :D"); refresh(); break;
 				case 'n': NewGame = 0; break; //this will break the loop and exit the program
 			}
 		}
