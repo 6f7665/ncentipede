@@ -1,6 +1,6 @@
 GXX=clang++
 
-all: ncaterpillar
+all: ncentipede
 
-ncaterpillar: main.cpp
-	$(GXX) -std=c++17 -lncurses main.cpp -o ncaterpillar
+ncentipede: main.cpp
+	$(GXX) -std=c++17 -lncursesw main.cpp -o ncaterpillar
